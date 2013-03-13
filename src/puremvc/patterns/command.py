@@ -38,6 +38,7 @@ class MacroCommand(puremvc.patterns.observer.Notifier, puremvc.interfaces.IComma
         instead, override the C{initializeMacroCommand}
         method.
         """
+        super(MacroCommand,self).__init__()
         self.subCommands = []
         self.initializeMacroCommand()
 
