@@ -44,19 +44,19 @@ class Facade(puremvc.interfaces.IFacade):
         This C{IFacade} implementation is a Singleton, so you should not call the constructor
         directly, but instead call the static Singleton method C{Facade.getInstance()}
         """
-        if not cls.instance or not isinstance(cls.instance, cls):
-            cls.instance = super(Facade, cls).__new__(cls, *args, **kwargs)
-            cls.instance.initializeFacade()
-        return cls.instance
+        if not Facade.instance or not isinstance(Facade.instance, cls):
+            Facade.instance = super(Facade, cls).__new__(cls, *args, **kwargs)
+            Facade.instance.initializeFacade()
+        return Facade.instance
 
-    @staticmethod
-    def getInstance():
+    @classmethod
+    def getInstance(cls):
         """
         C{Facade} Singleton Static method.
 
         @return: the Singleton instance of C{Facade}
         """
-        return Facade()
+        return cls()
 
     def initializeFacade(self):
         """

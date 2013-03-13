@@ -50,19 +50,19 @@ class Controller(puremvc.interfaces.IController):
         This C{IController} implementation is a Singleton, so you should not call the constructor
         directly, but instead call the static Singleton method C{Controller.getInstance()}
         """
-        if not cls.instance or not isinstance(cls.instance, cls):
-            cls.instance = super(Controller, cls).__new__(cls, *args, **kwargs)
-            cls.instance.initializeController()
-        return cls.instance
+        if not Controller.instance or not isinstance(Controller.instance, cls):
+            Controller.instance = super(Controller, cls).__new__(cls, *args, **kwargs)
+            Controller.instance.initializeController()
+        return Controller.instance
 
-    @staticmethod
-    def getInstance():
+    @classmethod
+    def getInstance(cls):
         """
         C{Controller} Singleton Static method.
 
         @return: the Singleton instance of C{Controller}
         """
-        return Controller()
+        return cls()
 
     def initializeController(self):
         """
@@ -160,19 +160,19 @@ class Model(puremvc.interfaces.IModel):
         This C{IModel} implementation is a Singleton, so you should not call the constructor
         directly, but instead call the static Singleton method C{Model.getInstance()}
         """
-        if not cls.instance or not isinstance(cls.instance, cls):
-            cls.instance = super(Model, cls).__new__(cls, *args, **kwargs)
-            cls.instance.initializeModel()
-        return cls.instance
+        if not Model.instance or not isinstance(Model.instance, cls):
+            Model.instance = super(Model, cls).__new__(cls, *args, **kwargs)
+            Model.instance.initializeModel()
+        return Model.instance
 
-    @staticmethod
-    def getInstance():
+    @classmethod
+    def getInstance(cls):
         """
         C{Model} Singleton Static method.
 
         @return: the Singleton instance of C{Model}
         """
-        return Model()
+        return cls()
 
     def initializeModel(self):
         """
@@ -256,19 +256,19 @@ class View(puremvc.interfaces.IView):
         This C{iView} implementation is a Singleton, so you should not call the constructor
         directly, but instead call the static Singleton method C{View.getInstance()}
         """
-        if not cls.instance or not isinstance(cls.instance, cls):
-            cls.instance = super(View, cls).__new__(cls, *args, **kwargs)
-            cls.instance.initializeView()
-        return cls.instance
+        if not View.instance or not isinstance(View.instance, cls):
+            View.instance = super(View, cls).__new__(cls, *args, **kwargs)
+            View.instance.initializeView()
+        return View.instance
 
-    @staticmethod
-    def getInstance():
+    @classmethod
+    def getInstance(cls):
         """
         C{View} Singleton Static method.
 
         @return: the Singleton instance of C{View}
         """
-        return View()
+        return cls()
 
     def initializeView(self):
         """
